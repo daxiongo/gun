@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			vertical-align: middle;
+		}
+		.box{
+			width: 140px;
+			height: 200px;
+			border: 10px solid;
+			margin: 0 auto;
+			overflow: hidden; 
+		}
+		.box .imgs{
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1" class="box">
+		<ul class="imgs" style="top: 0;">
+			<li><img src="imgs/1.png" alt="1"></li>
+			<li><img src="imgs/2.png" alt="2"></li>
+			<li><img src="imgs/3.png" alt="3"></li>
+			<li><img src="imgs/4.png" alt="4"></li>
+			<li><img src="imgs/5.png" alt="5"></li>
+			<li><img src="imgs/6.png" alt="6"></li>
+		</ul>
+	</div>
+	<script>
+		var box=document.getElementById('box1');
+		var imgs=box.getElementsByClassName('imgs')[0];
+		var img1=50;
+		var img2=6;
+		var img3=img1*img2;
+		var t=null;
+		var step=20;
+			function move(){
+				var top=parseInt(imgs.style.top);
+				if(top==-img3){
+					top=0;
+				}
+				imgs.style.top=--top+'px';
+			}
+		imgs.innerHTML+=imgs.innerHTML;
+		imgs.onmouseover=function(){
+			clearInterval(t);
+		}
+		imgs.onmouseout=function(){
+			t=setInterval(move,step);
+		}
+		imgs.onmouseout();
+	</script>
+</body>
+</html>
